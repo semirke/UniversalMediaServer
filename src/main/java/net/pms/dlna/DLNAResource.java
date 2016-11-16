@@ -1601,7 +1601,7 @@ public abstract class DLNAResource extends HTTPResource implements Cloneable, Ru
 			!configurationSpecificToRenderer.getDisableTranscoding() &&
 			hasExternalSubtitles() &&
 			!isNamedNoEncoding &&
-			media_audio == null &&
+//			media_audio == null &&
 			media_subtitle == null &&
 			!configurationSpecificToRenderer.hideSubsInfo() &&
 			(
@@ -1628,7 +1628,10 @@ public abstract class DLNAResource extends HTTPResource implements Cloneable, Ru
 				audioTrackTitle = " (" + getMediaAudio().getAudioTrackTitleFromMetadata() + ")";
 			}
 
-			displayName = player != null ? ("[" + player.name() + "]") : "";
+			if (!configuration.isHideEngineNames()) {
+				displayName += player != null ? ("[" + player.name() + "]") : "";
+			}
+			
 			nameSuffix = " {Audio: " + getMediaAudio().getAudioCodec() + audioLanguage + audioTrackTitle + "}";
 		}
 
