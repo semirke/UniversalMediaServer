@@ -69,16 +69,17 @@ public class SubtitleTypeTest {
 		assertThat(UNKNOWN.getDescription()).isEqualTo("Generic");
 		assertThat(UNSUPPORTED.getDescription()).isEqualTo("Unsupported");
 		assertThat(SUBRIP.getDescription()).isEqualTo("SubRip");
-		assertThat(TEXT.getDescription()).isEqualTo("Text file");
+		assertThat(TEXT.getDescription()).isEqualTo("Text");
 		assertThat(MICRODVD.getDescription()).isEqualTo("MicroDVD");
-		assertThat(SAMI.getDescription()).isEqualTo("SAMI");
-		assertThat(ASS.getDescription()).isEqualTo("(Advanced) SubStation Alpha");
+		assertThat(SAMI.getDescription()).isEqualTo("Synchronized Accessible Media Interchange");
+		assertThat(ASS.getDescription()).isEqualTo("Sub Station Alpha");
 		assertThat(VOBSUB.getDescription()).isEqualTo("VobSub");
 		assertThat(USF.getDescription()).isEqualTo("Universal Subtitle Format");
-		assertThat(BMP.getDescription()).isEqualTo("BMP");
+		assertThat(BMP.getDescription()).isEqualTo("Bitmap");
 		assertThat(DIVX.getDescription()).isEqualTo("DIVX subtitles");
-		assertThat(TX3G.getDescription()).isEqualTo("Timed text (TX3G)");
-		assertThat(PGS.getDescription()).isEqualTo("Blu-ray subtitles");
+		assertThat(TX3G.getDescription()).isEqualTo("MPEG-4 Timed text");
+		assertThat(PGS.getDescription()).isEqualTo("Presentation Grapic Stream");
+		assertThat(WEBVTT.getDescription()).isEqualTo("Web Video Text Tracks");
 	}
 
 	@Test
