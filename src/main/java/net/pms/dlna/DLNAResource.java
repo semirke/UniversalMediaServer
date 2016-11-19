@@ -807,35 +807,30 @@ public abstract class DLNAResource extends HTTPResource implements Cloneable, Ru
 		 * player. However, other details about the media can change this, such as
 		 * whether it has subtitles that match this user's language settings, so here we
 		 * perform those checks.
-		 */
+		*/
 		if (format.isVideo() && !configurationSpecificToRenderer.isDisableSubtitles()) {
-			if (hasEmbeddedSubs || hasExternalSubtitles()) {
-				OutputParams params = new OutputParams(configurationSpecificToRenderer);
-				Player.setAudioAndSubs(getSystemName(), media, params); // set proper subtitles in accordance with user setting
-				if (params.sid != null) {
-					if (params.sid.isExternal()) {
-						if (renderer != null && renderer.isExternalSubtitlesFormatSupported(params.sid, media)) {
-							media_subtitle = params.sid;
-							media_subtitle.setSubsStreamable(true);
-							LOGGER.trace("This video has external subtitles that could be streamed");
-						} else {
-							hasSubsToTranscode = true;
-							LOGGER.trace("This video has external subtitles that should be transcoded");
-						}
-					} else if (params.sid.isEmbedded()) {
-						if (renderer != null && renderer.isEmbeddedSubtitlesFormatSupported(params.sid)) {
-							LOGGER.trace("This video has embedded subtitles that could be streamed");
-						} else {
-							hasSubsToTranscode = true;
-							LOGGER.trace("This video has embedded subtitles that should be transcoded");
-						}
+			if (media_subtitle != null) {
+				if (media_subtitle.isExternal()) {
+					if (renderer != null && renderer.isExternalSubtitlesFormatSupported(media_subtitle, media)) {
+						media_subtitle.setSubsStreamable(true);
+						LOGGER.trace("This video has external subtitles that could be streamed");
+					} else {
+						hasSubsToTranscode = true;
+						LOGGER.trace("This video has external subtitles that should be transcoded");
+					}
+				} else if (media_subtitle.isEmbedded()) {
+					if (renderer != null && renderer.isEmbeddedSubtitlesFormatSupported(media_subtitle)) {
+						LOGGER.trace("This video has embedded subtitles that could be streamed");
+					} else {
+						hasSubsToTranscode = true;
+						LOGGER.trace("This video has embedded subtitles that should be transcoded");
 					}
 				}
 			} else {
 				LOGGER.trace("This video does not have subtitles");
 			}
 		}
-
+		
 		if (configurationSpecificToRenderer.getDisableTranscoding()) {
 			LOGGER.trace("Final verdict: \"{}\" will be streamed since transcoding is disabled", getName());
 			return null;
