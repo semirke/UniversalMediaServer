@@ -73,7 +73,7 @@ public class SubtitleTypeTest {
 		assertThat(TEXT.getDescription()).isEqualTo("Text");
 		assertThat(MICRODVD.getDescription()).isEqualTo("MicroDVD");
 		assertThat(SAMI.getDescription()).isEqualTo("Synchronized Accessible Media Interchange");
-		assertThat(ASS.getDescription()).isEqualTo("Sub Station Alpha");
+		assertThat(ASS.getDescription()).isEqualTo("(Advanced) Sub Station Alpha");
 		assertThat(VOBSUB.getDescription()).isEqualTo("VobSub");
 		assertThat(USF.getDescription()).isEqualTo("Universal Subtitle Format");
 		assertThat(BMP.getDescription()).isEqualTo("Bitmap");
