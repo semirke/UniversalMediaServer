@@ -23,8 +23,8 @@ package net.pms.util;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import org.apache.commons.httpclient.*;
-import org.apache.commons.httpclient.methods.GetMethod;
+import org.apache.httpcomponents.*;
+import org.apache.httpcomponents.methods.GetMethod;
 
 /**
  * Downloads URLs
