@@ -285,7 +285,6 @@ public class PmsConfiguration extends RendererConfiguration {
 	protected static final String KEY_TRANSCODE_KEEP_FIRST_CONNECTION = "transcode_keep_first_connection";
 	protected static final String KEY_TSMUXER_FORCEFPS = "tsmuxer_forcefps";
 	protected static final String KEY_UPNP_ENABLED = "upnp_enable";
-	protected static final String KEY_UPNP_PORT = "upnp_port";
 	protected static final String KEY_USE_CACHE = "use_cache";
 	protected static final String KEY_USE_EMBEDDED_SUBTITLES_STYLE = "use_embedded_subtitles_style";
 	protected static final String KEY_USE_IMDB_INFO = "use_imdb_info";
@@ -2192,7 +2191,7 @@ public class PmsConfiguration extends RendererConfiguration {
 	 * @return The string of network interface names to skip.
 	 */
 	public List<String> getSkipNetworkInterfaces() {
-		return getStringList(KEY_SKIP_NETWORK_INTERFACES, "tap,vmnet,vnic,virtualbox");
+		return getStringList(KEY_SKIP_NETWORK_INTERFACES, "tap");
 	}
 
 	public void setSkipLoopFilterEnabled(boolean value) {
@@ -3007,10 +3006,6 @@ public class PmsConfiguration extends RendererConfiguration {
 
 	public void setAutoUpdate(boolean value) {
 		configuration.setProperty(KEY_AUTO_UPDATE, value);
-	}
-
-	public int getUpnpPort() {
-		return getInt(KEY_UPNP_PORT, 1900);
 	}
 
 	public String getUuid() {
