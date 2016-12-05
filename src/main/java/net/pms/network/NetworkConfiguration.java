@@ -21,7 +21,7 @@ package net.pms.network;
 import java.net.*;
 import java.util.*;
 import net.pms.PMS;
-import net.pms.configuration.PmsConfiguration;
+import net.pms.util.ConstantList;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -116,15 +116,19 @@ public class NetworkConfiguration {
 	 */
 	private final static Logger LOGGER = LoggerFactory.getLogger(NetworkConfiguration.class);
 
+	private final static Object instanceLock = new Object();
+
 	/**
-	 * Singleton instance of this class.
+	 * Singleton instance of this class. All access must be protected by {@link #instanceLock}.
 	 */
-	private static NetworkConfiguration config;
+	private static NetworkConfiguration instance;
 
 	/**
 	 * The list of discovered network interfaces.
 	 */
 	private List<InterfaceAssociation> interfaces = new ArrayList<>();
+
+	private final List<InterfaceAssociation> relevantInterfaces;
 
 	/**
 	 * The map of discovered default IP addresses belonging to a network interface.
@@ -137,20 +141,17 @@ public class NetworkConfiguration {
 	private Map<String, Set<InetAddress>> addressMap = new HashMap<>();
 
 	/**
-	 * The list of configured network interface names that should be skipped.
-	 *
-	 * @see PmsConfiguration#getSkipNetworkInterfaces()
-	 */
-	private List<String> skipNetworkInterfaces = PMS.getConfiguration().getSkipNetworkInterfaces();
-
-	/**
 	 * Default constructor. However, this is a singleton class: use
-	 * {@link #getInstance()} to retrieve an instance.
+	 * {@link #get()} to retrieve an instance.
+	 * @throws SocketException
 	 */
-	private NetworkConfiguration(Enumeration<NetworkInterface> networkInterfaces) {
+	private NetworkConfiguration() throws SocketException {
 		System.setProperty("java.net.preferIPv4Stack", "true");
 
-		checkNetworkInterface(networkInterfaces, null);
+		checkNetworkInterface(NetworkInterface.getNetworkInterfaces(), null);
+
+		relevantInterfaces = new ConstantList<NetworkConfiguration.InterfaceAssociation>(interfaces);
+
 	}
 
 	/**
@@ -237,7 +238,7 @@ public class NetworkConfiguration {
 				checkNetworkInterface(ni, parentName);
 			} else {
 				LOGGER.trace("Child network interface ({},{}) skipped, because skip_network_interfaces='{}'",
-					new Object[] { ni.getName(), ni.getDisplayName(), skipNetworkInterfaces });
+					new Object[] { ni.getName(), ni.getDisplayName(), PMS.getConfiguration().getSkipNetworkInterfaces() });
 			}
 		}
 
@@ -327,37 +328,6 @@ public class NetworkConfiguration {
 			interfaces.add(new InterfaceAssociation(null, networkInterface, parentName));
 			LOGGER.trace("Network interface \"{}\" has no valid address", networkInterface.getName());
 		}
-	}
-
-	/**
-	 * Returns the list of discovered interface names.
-	 *
-	 * @return The interface names.
-	 */
-	public List<String> getKeys() {
-		List<String> result = new ArrayList<>(interfaces.size());
-
-		for (InterfaceAssociation i : interfaces) {
-			result.add(i.getShortName());
-		}
-
-		return result;
-	}
-
-	/**
-	 * Returns the list of user friendly name names of interfaces with their IP
-	 * address.
-	 *
-	 * @return The list of names.
-	 */
-	public List<String> getDisplayNames() {
-		List<String> result = new ArrayList<>(interfaces.size());
-
-		for (InterfaceAssociation i : interfaces) {
-				result.add(i.getDisplayName());
-		}
-
-		return result;
 	}
 
 	/**
@@ -516,7 +486,7 @@ public class NetworkConfiguration {
 	 * @return True if the interface should be skipped, false otherwise.
 	 */
 	private boolean skipNetworkInterface(String name, String displayName) {
-		for (String current : skipNetworkInterfaces) {
+		for (String current : PMS.getConfiguration().getSkipNetworkInterfaces()) {
 			if (current != null) {
 				// We expect the configured network interface names to skip to be
 				// defined with the start of the interface name, e.g. "tap" to
@@ -556,27 +526,53 @@ public class NetworkConfiguration {
 	}
 
 	/**
-	 * Returns a configured NetworkConfiguration object, or <code>null</code>
-	 * when an I/O error occurs.
+	 * Creates or returns the {@link NetworkConfiguration} singleton instance.
 	 *
-	 * @return The network configuration.
+	 * @return The {@link NetworkConfiguration} instance.
 	 */
-	public static synchronized NetworkConfiguration getInstance() {
-		if (config == null) {
-			try {
-				config = new NetworkConfiguration(NetworkInterface.getNetworkInterfaces());
-			} catch (SocketException e) {
-				LOGGER.error("Inspecting the network failed: " + e.getMessage(), e);
+	public static NetworkConfiguration get() {
+		synchronized (instanceLock) {
+			if (instance == null) {
+				try {
+					instance = new NetworkConfiguration();
+				} catch (SocketException e) {
+					LOGGER.error("Fatal error when trying to detect network configuration: {}", e.getMessage());
+					LOGGER.error("No network services will be available");
+					LOGGER.trace("", e);
+					instance = null;
+				}
 			}
-		}
 
-		return config;
+			return instance;
+		}
 	}
 
 	/**
-	 * Forget the cached configuration.
+	 * Attempts to get the name of the local computer.
 	 */
-	public static synchronized void forgetConfiguration() {
-		config = null;
+	public static String getDefaultHostName() {
+		String hostname;
+		try {
+			hostname = InetAddress.getLocalHost().getHostName();
+		} catch (UnknownHostException e) {
+			hostname = InetAddress.getLoopbackAddress().getHostName();
+		}
+		return hostname;
+	}
+
+	/**
+	 * Reinitializes the {@link NetworkConfiguration} singleton instance.
+	 */
+	public static void reinitialize() {
+		synchronized (instanceLock) {
+			try {
+				instance = new NetworkConfiguration();
+			} catch (SocketException e) {
+				LOGGER.error("Fatal error when trying to detect network configuration: {}", e.getMessage());
+				LOGGER.error("No network services will be available");
+				LOGGER.trace("", e);
+				instance = null;
+			}
+		}
 	}
 }

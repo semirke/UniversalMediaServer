@@ -735,13 +735,13 @@ public final class Languages {
 	}
 
 	/**
-	 * Returns a UMS supported {@link java.util.Locale} from the given
+	 * Returns a UMS supported {@link Locale} from the given
 	 * <a href="https://en.wikipedia.org/wiki/IETF_language_tag">IEFT BCP 47</a>
 	 * if it can be found (<code>en</code> is translated to <code>en-US</code>,
 	 * <code>zh</code> to <code>zh-Hant</code> etc.). Returns <code>null</code>
 	 * if a valid <code>Locale</code> cannot be found.
-	 * @param locale Source {@link java.util.Locale}.
-	 * @return Resulting {@link java.util.Locale}.
+	 * @param languageTag Source {@code IEFT BCP 47} {@link String}.
+	 * @return Resulting {@link Locale}.
 	 */
 	public static Locale toLocale(String languageTag) {
 		if (languageTag != null) {

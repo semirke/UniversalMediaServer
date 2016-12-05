@@ -803,6 +803,20 @@ public class PmsConfiguration extends RendererConfiguration {
 	}
 
 	/**
+	 * @return The default HTTP server port number.
+	 */
+	public int getServerDefaultPort() {
+		return DEFAULT_SERVER_PORT;
+	}
+
+	/**
+	 * @return The HTTP server port configuration {@link String} or {@code null}.
+	 */
+	public String getServerPortString() {
+		return getString(KEY_SERVER_PORT, null);
+	}
+
+	/**
 	 * Set the server port where PMS must listen for TCP/IP traffic.
 	 * @param value The TCP/IP port number.
 	 */

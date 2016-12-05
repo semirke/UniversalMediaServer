@@ -90,7 +90,7 @@ public class RemoteWeb {
 		if (socketAddress == null) {
 			InterfaceAssociation interfaceAssociation = null;
 			if (StringUtils.isNotEmpty(configuration.getNetworkInterface())) {
-				interfaceAssociation = NetworkConfiguration.getInstance().getAddressForNetworkInterfaceName(configuration.getNetworkInterface());
+				interfaceAssociation = NetworkConfiguration.get().getAddressForNetworkInterfaceName(configuration.getNetworkInterface());
 			}
 
 			if (interfaceAssociation != null) {
