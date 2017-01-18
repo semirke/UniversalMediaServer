@@ -431,9 +431,9 @@ public class FFMpegVideo extends Player {
 
 		// Give priority to the renderer's maximum bitrate setting over the user's setting
 		if (rendererMaxBitrates[0] > 0 && rendererMaxBitrates[0] < defaultMaxBitrates[0]) {
-			LOGGER.trace("Using the video bitrate limit from the renderer config (" + rendererMaxBitrates[0] + "Mb/s) which is lower than the one from the program settings (" + defaultMaxBitrates[0] + "Mb/s)");
+			LOGGER.trace("Using the video bitrate limit from the renderer config (" + rendererMaxBitrates[0] + " Mb/s) which is lower than the one from the program settings (" + defaultMaxBitrates[0] + " Mb/s)");
 		} else {
-			LOGGER.trace("Using the video bitrate limit from the program settings (" + defaultMaxBitrates[0] + "Mb/s)");
+			LOGGER.trace("Using the video bitrate limit from the program settings (" + defaultMaxBitrates[0] + " Mb/s)");
 		}
 
 		boolean isXboxOneWebVideo = params.mediaRenderer.isXboxOne() && purpose() == VIDEO_WEBSTREAM_PLAYER;
@@ -452,7 +452,7 @@ public class FFMpegVideo extends Player {
 
 			if (params.mediaRenderer.isHalveBitrate()) {
 				defaultMaxBitrates[0] /= 2;
-				LOGGER.trace("Halving the video bitrate limit to " + defaultMaxBitrates[0]);
+				LOGGER.trace("Halving the video bitrate limit to " + defaultMaxBitrates[0] + " kb/s");
 			}
 
 			int bufSize = 1835;
@@ -473,7 +473,7 @@ public class FFMpegVideo extends Player {
 				) {
 					defaultMaxBitrates[0] = 31250;
 					bitrateLevel41Limited = true;
-					LOGGER.trace("Adjusting the video bitrate limit to the H.264 Level 4.1-safe value of 31250");
+					LOGGER.trace("Adjusting the video bitrate limit to the H.264 Level 4.1-safe value of 31250 kb/s");
 				}
 				bufSize = defaultMaxBitrates[0];
 			} else {
@@ -508,7 +508,7 @@ public class FFMpegVideo extends Player {
 					defaultMaxBitrates[0] = 3000;
 				}
 
-				LOGGER.trace("Adjusting the video bitrate limit to " + defaultMaxBitrates[0] + "kb/s to make room for audio");
+				LOGGER.trace("Adjusting the video bitrate limit to " + defaultMaxBitrates[0] + " kb/s to make room for audio");
 			}
 
 			videoBitrateOptions.add("-bufsize");
