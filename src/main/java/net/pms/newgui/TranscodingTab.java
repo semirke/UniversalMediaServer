@@ -25,6 +25,7 @@ import com.jgoodies.forms.layout.FormLayout;
 import com.sun.jna.Platform;
 import java.awt.*;
 import java.awt.event.*;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -1001,7 +1002,7 @@ public class TranscodingTab {
 
 		subColor = new JButton();
 		subColor.setText(Messages.getString("MEncoderVideo.31"));
-		subColor.setBackground(new Color(Integer.parseUnsignedInt(configuration.getSubsColor(), 16)));
+		subColor.setBackground(new Color(new BigInteger(configuration.getSubsColor(), 16).intValue()));
 		subColor.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
