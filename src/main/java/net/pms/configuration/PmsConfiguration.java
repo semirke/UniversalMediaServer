@@ -2807,11 +2807,11 @@ public class PmsConfiguration extends RendererConfiguration {
 		configuration.setProperty(KEY_CHAPTER_INTERVAL, value);
 	}
 
-	public int getSubsColor() {
-		return getInt(KEY_SUBS_COLOR, 0xffffffff);
+	public String getSubsColor() {
+		return getString(KEY_SUBS_COLOR, "ffffffff");
 	}
 
-	public void setSubsColor(int value) {
+	public void setSubsColor(String value) {
 		configuration.setProperty(KEY_SUBS_COLOR, value);
 	}
 
