@@ -51,6 +51,8 @@ import static net.pms.util.AudioUtils.getLPCMChannelMappingForMencoder;
 import static net.pms.util.StringUtil.quoteArg;
 import org.apache.commons.configuration.event.ConfigurationEvent;
 import org.apache.commons.configuration.event.ConfigurationListener;
+import org.apache.commons.lang3.StringUtils;
+
 import static org.apache.commons.lang.BooleanUtils.isTrue;
 import static org.apache.commons.lang3.StringUtils.*;
 import org.slf4j.Logger;
@@ -1409,7 +1411,7 @@ public class MEncoderVideo extends Player {
 
 				if (override_ass_style) {
 					String assSubColor = "ffffff00";
-					if (!configuration.getSubsColor().isEmpty()) {
+					if (StringUtils.isNotBlank(configuration.getSubsColor())) {
 						assSubColor = configuration.getSubsColor();
 						if (assSubColor.length() > 2) {
 							assSubColor = assSubColor.substring(2) + "00";
