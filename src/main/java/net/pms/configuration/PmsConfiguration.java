@@ -2267,7 +2267,7 @@ public class PmsConfiguration extends RendererConfiguration {
 				"mencoderwebvideo",
 				"vlcaudio", // (VideoLanAudioStreaming) TODO (legacy web audio engine): remove
 				"ffmpegdvrmsremux",
-				"rawthumbs"
+				"dcraw"
 			},
 			","
 		);
@@ -2281,6 +2281,12 @@ public class PmsConfiguration extends RendererConfiguration {
 		);
 
 		engines = hackAvs(registry, engines);
+		// Backwards compatibility, can be removed when sufficient time has passed - 2017-01
+		int i = engines.indexOf("rawthumbs");
+		if (i >= 0) {
+			engines.set(i, "dcraw");
+		}
+
 		return engines;
 	}
 
