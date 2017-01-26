@@ -248,10 +248,17 @@ public class DLNAMediaAudio extends DLNAMediaLang implements Cloneable {
 	}
 
 	/**
+	 * @return True if the audio codec is EVRC.
+	 */
+	public boolean isEVRC() {
+		return FormatConfiguration.EVRC.equalsIgnoreCase(getCodecA());
+	}
+	
+	/**
 	 * @return True if the audio codec is FLAC.
 	 */
 	public boolean isFLAC() {
-		return getCodecA() != null && getCodecA().startsWith("fla");
+		return FormatConfiguration.FLAC.equalsIgnoreCase(getCodecA());
 	}
 
 	/**
@@ -308,6 +315,13 @@ public class DLNAMediaAudio extends DLNAMediaLang implements Cloneable {
 	 */
 	public boolean isPCM() {
 		return FormatConfiguration.LPCM.equals(getCodecA()) || getCodecA() != null && getCodecA().startsWith("pcm");
+	}
+
+	/**
+	 * @return True if the audio codec is QCELP.
+	 */
+	public boolean isQCELP() {
+		return FormatConfiguration.QCELP.equalsIgnoreCase(getCodecA());
 	}
 
 	/**
@@ -448,6 +462,8 @@ public class DLNAMediaAudio extends DLNAMediaLang implements Cloneable {
 			return "DTS HD";
 		} else if (isEAC3()) {
 			return "Enhanced AC-3";
+		} else if (isEVRC()) {
+			return "EVRC";	
 		} else if (isFLAC()) {
 			return "FLAC";
 		} else if (isMKA()) {
@@ -466,6 +482,8 @@ public class DLNAMediaAudio extends DLNAMediaLang implements Cloneable {
 			return "Opus";
 		} else if (isPCM()) {
 			return "LPCM";
+		} else if (isQCELP()) {
+			return "QCELP";
 		} else if (isQDesign()) {
 			return "QDesign";
 		} else if (isRALF()) {
