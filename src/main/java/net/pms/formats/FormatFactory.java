@@ -51,7 +51,6 @@ public final class FormatFactory {
 		new DTS(),
 		new DVRMS(),
 		new EAC3(),
-		new EVRC(),
 		new FLAC(),
 		new GIF(),
 		new IDX(),
