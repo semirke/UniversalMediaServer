@@ -255,13 +255,6 @@ public class DLNAMediaAudio extends DLNAMediaLang implements Cloneable {
 	}
 
 	/**
-	 * @return True if the audio codec is HE-AAC.
-	 */
-	public boolean isHEAAC() {
-		return FormatConfiguration.AAC_HE.equalsIgnoreCase(getCodecA());
-	}
-
-	/**
 	 * @return True if the audio codec is Matroska Audio.
 	 */
 	public boolean isMKA() {
@@ -430,7 +423,9 @@ public class DLNAMediaAudio extends DLNAMediaLang implements Cloneable {
 		if (is3GA()) {
 			return "3GA";
 		} else if (isAACLC()) {
-			return "AAC";
+			return "AAC-LC";
+		} else if (isAACHE()) {
+			return "HE-AAC";
 		} else if (isAC3()) {
 			return "AC3";
 		} else if (isADPCM()) {
@@ -455,8 +450,6 @@ public class DLNAMediaAudio extends DLNAMediaLang implements Cloneable {
 			return "Enhanced AC-3";
 		} else if (isFLAC()) {
 			return "FLAC";
-		} else if (isHEAAC()) {
-			return "HE-AAC";
 		} else if (isMKA()) {
 			return "Matroska Audio";
 		} else if (isMLP()) {
