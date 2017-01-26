@@ -19,7 +19,7 @@
  */
 package net.pms.formats;
 
-public class THREEGA extends AudioFile {
+public class QCELP extends AudioFile {
 	/**
 	 * {@inheritDoc}
 	 */
