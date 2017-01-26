@@ -526,8 +526,12 @@ public class LibMediaInfoParser {
 			format = FormatConfiguration.AMR;
 		} else if (value.equals("ac-3") || value.equals("a_ac3") || value.equals("2000")) {
 			format = FormatConfiguration.AC3;
+		} else if (value.equals("evrc")) {
+			format = FormatConfiguration.EVRC;
 		} else if (value.startsWith("cook")) {
 			format = FormatConfiguration.COOK;
+		} else if (value.equals("qcelp")) {
+			format = FormatConfiguration.QCELP;
 		} else if (value.startsWith("qdesign")) {
 			format = FormatConfiguration.QDESIGN;
 		} else if (value.equals("realaudio lossless")) {
