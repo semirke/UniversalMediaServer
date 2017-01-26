@@ -587,7 +587,7 @@ public class LibMediaInfoParser {
 			} else if (value.equalsIgnoreCase("A")) {
 				format = FormatConfiguration.WMAVOICE;
 			}
-		} else if (value.equals("flac")) {
+		} else if (value.startsWith("fla")) {
 			format = FormatConfiguration.FLAC;
 		} else if (value.equals("monkey's audio")) {
 			format = FormatConfiguration.MONKEYS_AUDIO;
