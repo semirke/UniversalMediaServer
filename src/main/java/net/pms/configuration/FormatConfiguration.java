@@ -62,6 +62,7 @@ public class FormatConfiguration {
 	public static final String DTSHD = "dtshd";
 	public static final String DV = "dv";
 	public static final String EAC3 = "eac3";
+	public static final String EVRC = "evrc";
 	public static final String FLAC = "flac";
 	public static final String FLV = "flv";
 	public static final String GIF = "gif";
@@ -92,6 +93,7 @@ public class FormatConfiguration {
 	public static final String OGG = "ogg";
 	public static final String OPUS = "opus";
 	public static final String PNG = "png";
+	public static final String QCELP = "qcelp";
 	public static final String QDESIGN = "qdmc";
 	public static final String RA = "ra";
 	public static final String REALAUDIO_LOSSLESS = "ralf";
