@@ -597,7 +597,7 @@ public class LibMediaInfoParser {
 			format = FormatConfiguration.WAVPACK;
 		} else if (value.contains("mlp")) {
 			format = FormatConfiguration.MLP;
-		} else if (value.contains("atrac3")) {
+		} else if (value.contains("atrac")) {
 			format = FormatConfiguration.ATRAC;
 			if (media.getCodecV() == null) {
 				media.setContainer(FormatConfiguration.ATRAC);
