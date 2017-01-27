@@ -992,7 +992,7 @@ public class FormatConfigurationRegressionTest0 {
     java.lang.String str0 = net.pms.configuration.FormatConfiguration.QCELP;
 
     // Regression assertion (captures the current behavior of the code)
-    org.junit.Assert.assertTrue("'" + str0 + "' != '" + "qcelp"+ "'", str0.equals("qcelp"));
+    org.junit.Assert.assertTrue("'" + str0 + "' != '" + "qlcm"+ "'", str0.equals("qlcm"));
 
   }
 
