@@ -33,11 +33,9 @@ public class FLV extends MPG {
 	@Override
 	public String[] getSupportedExtensions() {
 		return new String[] {
-      "f4a",
-      "f4b",
-      "f4p",
+			"f4p",
 			"flv",
-      "f4v"
+			"f4v"
 		};
 	}
 }
