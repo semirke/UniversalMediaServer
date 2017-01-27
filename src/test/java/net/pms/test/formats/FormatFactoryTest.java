@@ -127,7 +127,6 @@ public class FormatFactoryTest {
 		testSingleFormat("test.asx", "MKV", Format.VIDEO);
 		testSingleFormat("test.dv", "MKV", Format.VIDEO);
 		testSingleFormat("test.evo", "MKV", Format.VIDEO);
-		testSingleFormat("test.flv", "MKV", Format.VIDEO);
 		testSingleFormat("test.hdmov", "MKV", Format.VIDEO);
 		testSingleFormat("test.hdm", "MKV", Format.VIDEO);
 		testSingleFormat("test.m2v", "MKV", Format.VIDEO);
@@ -150,8 +149,6 @@ public class FormatFactoryTest {
 		testSingleFormat("test.avi", "MPG", Format.VIDEO);
 		testSingleFormat("test.div", "MPG", Format.VIDEO);
 		testSingleFormat("test.divx", "MPG", Format.VIDEO);
-		testSingleFormat("test.f4p", "MPG", Format.VIDEO);
-		testSingleFormat("test.f4v", "MPG", Format.VIDEO);
 		testSingleFormat("test.m2t", "MPG", Format.VIDEO);
 		testSingleFormat("test.m2ts", "MPG", Format.VIDEO);
 		testSingleFormat("test.m4v", "MPG", Format.VIDEO);
