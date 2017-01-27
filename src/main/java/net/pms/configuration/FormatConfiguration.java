@@ -93,7 +93,7 @@ public class FormatConfiguration {
 	public static final String OGG = "ogg";
 	public static final String OPUS = "opus";
 	public static final String PNG = "png";
-	public static final String QCELP = "qcelp";
+	public static final String QLCM = "qcelp";
 	public static final String QDESIGN = "qdmc";
 	public static final String RA = "ra";
 	public static final String REALAUDIO_LOSSLESS = "ralf";
