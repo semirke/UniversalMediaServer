@@ -109,7 +109,7 @@ public class FormatTest {
 		assertEquals("MPG matches \"test.mpg\"", true, new MPG().match("test.mpg"));
 		assertEquals("MPGAudio matches \"test.mp2\"", true, new MPGAudio().match("test.mp2"));
 		assertEquals("MPGAudio matches \"test.mpa\"", true, new MPGAudio().match("test.mpa"));
-		assertEquals("OGA matches \"test.oga\"", true, new OGA().match("test.oga"));
+//		assertEquals("OGA matches \"test.oga\"", true, new OGA().match("test.oga"));
 		assertEquals("OGG matches \"test.ogg\"", true, new OGG().match("test.ogg"));
 		assertEquals("OGG matches \"test.opus\"", true, new OGG().match("test.opus"));
 		assertEquals("OGG matches \"test.spx\"", true, new OGG().match("test.spx"));
