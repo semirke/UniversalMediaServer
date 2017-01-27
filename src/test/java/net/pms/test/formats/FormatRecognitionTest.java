@@ -302,7 +302,14 @@ public class FormatRecognitionTest {
 		format = new OGG();
 		format.match("test.ogg");
 		assertFalse("isCompatible() gives the outcome false for OGG", conf.isCompatible(info, format, configuration));
-
+		
+		// QLCM: false
+		info = new DLNAMediaInfo();
+		info.setContainer("qlcm");
+		format = new QLCM();
+		format.match("test.qcp");
+		assertFalse("isCompatible() gives the outcome false for QLCM", conf.isCompatible(info, format, configuration));
+		
 		// RAW: false
 		info = new DLNAMediaInfo();
 		info.setContainer("raw");
