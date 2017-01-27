@@ -75,7 +75,7 @@ public abstract class Format implements Cloneable {
 		MPG,
 		OGG,
 		PNG,
-		QCELP,
+		QLCM,
 		RA,
 		RAW,
 		SAMI,
