@@ -53,7 +53,6 @@ public class MPG extends Format {
 			"m4v",
 			"mod",
 			"mp4",
-			"m4v",
 			"mpe",
 			"mpeg",
 			"mpg",
