@@ -25,7 +25,7 @@ public class QCELP extends AudioFile {
 	 */
 	@Override
 	public Identifier getIdentifier() {
-		      return Identifier.QCELP;
+		      return Identifier.QLCM;
 	}
 
 	/**
