@@ -989,10 +989,10 @@ public class FormatConfigurationRegressionTest0 {
 
     if (debug) { System.out.format("%n%s%n","RegressionTest0.test82"); }
 
-    java.lang.String str0 = net.pms.configuration.FormatConfiguration.QCELP;
+    java.lang.String str0 = net.pms.configuration.FormatConfiguration.QLCM;
 
     // Regression assertion (captures the current behavior of the code)
-    org.junit.Assert.assertTrue("'" + str0 + "' != '" + "qlcm"+ "'", str0.equals("qlcm"));
+    org.junit.Assert.assertTrue("'" + str0 + "' != '" + "qcelp"+ "'", str0.equals("qcelp"));
 
   }
 
