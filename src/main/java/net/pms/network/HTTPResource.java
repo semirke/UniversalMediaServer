@@ -65,7 +65,7 @@ public class HTTPResource {
 	public static final String AUDIO_MPA_TYPEMIME = "audio/mpeg";
 	public static final String AUDIO_MPC_TYPEMIME = "audio/x-musepack";
 	public static final String AUDIO_OGG_TYPEMIME = "audio/ogg";
-	public static final String AUDIO_QCELP_TYPEMIME = "audio/qcelp";
+	public static final String AUDIO_QLCM_TYPEMIME = "audio/qcelp";
 	public static final String AUDIO_RA_TYPEMIME = "audio/x-realaudio";
 	public static final String AUDIO_SHN_TYPEMIME = "audio/x-shn";
 	public static final String AUDIO_THREEGPPA_TYPEMIME = "audio/3gpp";
