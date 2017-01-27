@@ -321,7 +321,7 @@ public class DLNAMediaAudio extends DLNAMediaLang implements Cloneable {
 	 * @return True if the audio codec is QCELP.
 	 */
 	public boolean isQCELP() {
-		return FormatConfiguration.QCELP.equalsIgnoreCase(getCodecA());
+		return FormatConfiguration.QLCM.equalsIgnoreCase(getCodecA());
 	}
 
 	/**
