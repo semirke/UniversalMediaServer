@@ -106,6 +106,11 @@ public class FormatFactoryTest {
 		testSingleFormat("test.eac3", "EAC3", Format.AUDIO);
 		testSingleFormat("test.fla", "FLAC", Format.AUDIO);
 		testSingleFormat("test.flac", "FLAC", Format.AUDIO);
+		testSingleFormat("test.f4a", "FlashAudio", Format.AUDIO);
+		testSingleFormat("test.f4b", "FlashAudio", Format.AUDIO);
+		testSingleFormat("test.f4p", "FLV", Format.VIDEO);
+		testSingleFormat("test.f4v", "FLV", Format.VIDEO);
+		testSingleFormat("test.flv", "FLV", Format.VIDEO);
 		testSingleFormat("test.gif", "GIF", Format.IMAGE);
 		testSingleFormat("test.idx", "IDX", Format.SUBTITLE);
 		testSingleFormat("test.img", "ISO", Format.ISO);
