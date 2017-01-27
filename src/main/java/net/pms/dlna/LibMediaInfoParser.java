@@ -531,7 +531,7 @@ public class LibMediaInfoParser {
 		} else if (value.startsWith("cook")) {
 			format = FormatConfiguration.COOK;
 		} else if (value.equals("qcelp")) {
-			format = FormatConfiguration.QCELP;
+			format = FormatConfiguration.QLCM;
 		} else if (value.startsWith("qdesign")) {
 			format = FormatConfiguration.QDESIGN;
 		} else if (value.equals("realaudio lossless")) {
