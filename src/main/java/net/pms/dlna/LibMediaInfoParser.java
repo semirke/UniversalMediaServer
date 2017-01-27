@@ -578,7 +578,7 @@ public class LibMediaInfoParser {
 				media.setContainer(format);
 			}
 		} else if (
-			streamType == StreamType.Audio && media.getCodecV() == null && audio != null && audio.getCodecA() != null &&
+			streamType == StreamType.Audio && isBlank(media.getFrameRate()) && audio != null && audio.getCodecA() != null &&
 			audio.getCodecA() == FormatConfiguration.WMA &&
 			(value.equals("161") || value.equals("162") || value.equals("163") || value.equalsIgnoreCase("A"))
 		) {
