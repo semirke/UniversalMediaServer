@@ -91,6 +91,11 @@ public class FormatTest {
 		assertEquals("PLAYLIST matches \"test.cue\"", true, new PLAYLIST().match("test.cue"));
 		assertEquals("FLAC matches \"test.fla\"", true, new FLAC().match("test.fla"));
 		assertEquals("FLAC matches \"test.flac\"", true, new FLAC().match("test.flac"));
+		assertEquals("FlashAudio matches \"test.f4a\"", true, new FlashAudio().match("test.f4a"));
+		assertEquals("FlashAudio matches \"test.f4b\"", true, new FlashAudio().match("test.f4b"));
+		assertEquals("FLV matches \"test.f4p\"", true, new FLV().match("test.f4p"));
+		assertEquals("FLV matches \"test.f4v\"", true, new FLV().match("test.f4v"));
+		assertEquals("FLV matches \"test.flv\"", true, new FLV().match("test.flv"));
 		assertEquals("GIF matches \"test.gif\"", true, new GIF().match("test.gif"));
 		assertEquals("IDX matches \"test.idx\"", true, new IDX().match("test.idx"));
 		assertEquals("ISO matches \"test.img\"", true, new ISO().match("test.img"));
