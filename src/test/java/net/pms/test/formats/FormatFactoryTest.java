@@ -96,6 +96,7 @@ public class FormatFactoryTest {
 		testSingleFormat("test.msa", "ATRAC", Format.AUDIO);
 		testSingleFormat("test.oma", "ATRAC", Format.AUDIO);
 		testSingleFormat("test.omg", "ATRAC", Format.AUDIO);
+		testSingleFormat("test.qcp", "QCELP", Format.AUDIO);
 		testSingleFormat("test.au", "AU", Format.AUDIO);
 		testSingleFormat("test.snd", "AU", Format.AUDIO);
 		testSingleFormat("test.dff", "DSDAudio", Format.AUDIO);
