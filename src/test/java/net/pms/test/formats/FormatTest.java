@@ -67,18 +67,26 @@ public class FormatTest {
 		// Identifier tests based on the identifiers defined in getId() of each class
 		assertEquals("DVRMS matches \"test.dvr\"", true, new DVRMS().match("test.dvr"));
 		assertEquals("AIFF matches \"test.aiff\"", true, new AIFF().match("test.aiff"));
+		assertEquals("AIFF matches \"test.aif\"", true, new AIFF().match("test.aif"));
+		assertEquals("AIFF matches \"test.aifc\"", true, new AIFF().match("test.aifc"));
+		assertEquals("BMP matches \"test.bmp\"", true, new BMP().match("test.bmp"));
 		assertEquals("FLAC matches \"test.flac\"", true, new FLAC().match("test.flac"));
 		assertEquals("GIF matches \"test.gif\"", true, new GIF().match("test.gif"));
 		assertEquals("ISO matches \"test.iso\"", true, new ISO().match("test.iso"));
 		assertEquals("JPG matches \"test.jpg\"", true, new JPG().match("test.jpg"));
+		assertEquals("JPG matches \"test.jpeg\"", true, new JPG().match("test.jpeg"));
 		assertEquals("WMA matches \"test.wma\"", true, new WMA().match("test.wma"));
+		assertEquals("MKA matches \"test.mka\"", true, new MKA().match("test.mka"));
 		assertEquals("MKV matches \"test.mkv\"", true, new MKV().match("test.mkv"));
 		assertEquals("MP3 matches \"test.mp3\"", true, new MP3().match("test.mp3"));
 		assertEquals("MPG matches \"test.mpg\"", true, new MPG().match("test.mpg"));
+		assertEquals("OGA matches \"test.oga\"", true, new OGA().match("test.oga"));
 		assertEquals("OGG matches \"test.ogg\"", true, new OGG().match("test.ogg"));
 		assertEquals("PNG matches \"test.png\"", true, new PNG().match("test.png"));
+		assertEquals("QCELP matches \"test.qcp\"", true, new QCELP().match("test.qcp"));
 		assertEquals("RAW matches \"test.arw\"", true, new RAW().match("test.arw"));
 		assertEquals("TIF matches \"test.tiff\"", true, new TIF().match("test.tiff"));
+		assertEquals("TIF matches \"test.tif\"", true, new TIF().match("test.tif"));
 		assertEquals("WAV matches \"test.wav\"", true, new WAV().match("test.wav"));
 		assertEquals("WEB matches \"http\"", true, new WEB().match("http://test.org/"));
 	}
