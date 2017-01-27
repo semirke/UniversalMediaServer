@@ -320,7 +320,7 @@ public class DLNAMediaAudio extends DLNAMediaLang implements Cloneable {
 	/**
 	 * @return True if the audio codec is QCELP.
 	 */
-	public boolean isQCELP() {
+	public boolean isQLCM() {
 		return FormatConfiguration.QLCM.equalsIgnoreCase(getCodecA());
 	}
 
@@ -482,7 +482,7 @@ public class DLNAMediaAudio extends DLNAMediaLang implements Cloneable {
 			return "Opus";
 		} else if (isPCM()) {
 			return "LPCM";
-		} else if (isQCELP()) {
+		} else if (isQLCM()) {
 			return "QCELP";
 		} else if (isQDesign()) {
 			return "QDesign";
