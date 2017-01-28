@@ -41,7 +41,7 @@ public class HTTPResource {
 	private static final Logger LOGGER = LoggerFactory.getLogger(HTTPResource.class);
 	public static final String UNKNOWN_VIDEO_TYPEMIME = "video/mpeg";
 	public static final String UNKNOWN_IMAGE_TYPEMIME = "image/jpeg";
-	public static final String UNKNOWN_AUDIO_TYPEMIME = "audio/mpeg";
+	public static final String UNKNOWN_AUDIO_TYPEMIME = "audio/x-dsf";
 	public static final String AUDIO_TRANSCODE = "audio/transcode";
 	public static final String VIDEO_TRANSCODE = "video/transcode";
 	public static final String AUDIO_AC3_TYPEMIME = "audio/vnd.dolby.dd-raw";
@@ -55,6 +55,7 @@ public class HTTPResource {
 	public static final String AUDIO_DTS_TYPEMIME = "audio/vnd.dts";
 	public static final String AUDIO_DTSHD_TYPEMIME = "audio/vnd.dts.hd";
 	public static final String AUDIO_EAC3_TYPEMIME = "audio/eac3";
+	public static final String AUDIO_F4A_TYPEMIME = "audio/x-flv";
 	public static final String AUDIO_FLAC_TYPEMIME = "audio/x-flac";
 	public static final String AUDIO_LPCM_TYPEMIME = "audio/L16";
 	public static final String AUDIO_M4A_TYPEMIME = "audio/x-m4a";
@@ -81,6 +82,7 @@ public class HTTPResource {
 	public static final String AVI_TYPEMIME = "video/avi";
 	public static final String BMP_TYPEMIME = "image/bmp";
 	public static final String DIVX_TYPEMIME = "video/x-divx";
+	public static final String FLV_TYPEMIME = "video/x-flv";
 	public static final String GIF_TYPEMIME = "image/gif";
 	public static final String JPEG_TYPEMIME = "image/jpeg";
 	public static final String MATROSKA_TYPEMIME = "video/x-matroska";
