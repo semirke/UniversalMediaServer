@@ -1482,7 +1482,7 @@ public class DLNAMediaInfo implements Cloneable {
 					mimeType = HTTPResource.AUDIO_MKA_TYPEMIME;
 				} else if ("webm".equals(container)) {
 					mimeType = HTTPResource.AUDIO_WEBM_TYPEMIME;
-				} else if ("flash video".equals(container)) {
+				} else if (container.startsWith("flash")) {
 					mimeType = HTTPResource.AUDIO_F4A_TYPEMIME;
 				} else if (codecA.contains("mp3")) {
 					mimeType = HTTPResource.AUDIO_MP3_TYPEMIME;
