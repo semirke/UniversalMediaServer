@@ -262,7 +262,9 @@ public class FFmpegAudio extends FFMpegVideo {
 			PlayerUtil.isAudio(resource, Format.Identifier.DTS) ||
 			PlayerUtil.isAudio(resource, Format.Identifier.EAC3) ||
 			PlayerUtil.isAudio(resource, Format.Identifier.EVRC) ||
+			PlayerUtil.isAudio(resource, Format.Identifier.F4A) ||
 			PlayerUtil.isAudio(resource, Format.Identifier.FLAC) ||
+			PlayerUtil.isAudio(resource, Format.Identifier.FLV) ||
 			PlayerUtil.isAudio(resource, Format.Identifier.M4A) ||
 			PlayerUtil.isAudio(resource, Format.Identifier.MKA) ||
 			PlayerUtil.isAudio(resource, Format.Identifier.MLP) ||
