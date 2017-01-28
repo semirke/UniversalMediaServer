@@ -260,7 +260,21 @@ public class DLNAMediaAudio extends DLNAMediaLang implements Cloneable {
 	public boolean isFLAC() {
 		return FormatConfiguration.FLAC.equalsIgnoreCase(getCodecA());
 	}
+	
+	/**
+	 * @return True if the audio codec is FlashAudio.
+	 */
+	public boolean isFlashAudio() {
+		return FormatConfiguration.FlashAudio.equalsIgnoreCase(getCodecA());
+	}
 
+	/**
+	 * @return True if the audio codec is FLV.
+	 */
+	public boolean isFLV() {
+		return FormatConfiguration.FLV.equalsIgnoreCase(getCodecA());
+	}
+	
 	/**
 	 * @return True if the audio codec is Matroska Audio.
 	 */
@@ -466,6 +480,10 @@ public class DLNAMediaAudio extends DLNAMediaLang implements Cloneable {
 			return "EVRC";	
 		} else if (isFLAC()) {
 			return "FLAC";
+		} else if (isFlashAudio()) {
+			return "Flash Audio";
+		} else if (isFLV()) {
+			return "FLV";
 		} else if (isMKA()) {
 			return "Matroska Audio";
 		} else if (isMLP()) {
