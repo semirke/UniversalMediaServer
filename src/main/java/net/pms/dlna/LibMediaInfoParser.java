@@ -548,7 +548,7 @@ public class LibMediaInfoParser {
 			format = FormatConfiguration.AAC;
 		} else if (value.contains("he-aac")) {
 			format = FormatConfiguration.AAC_HE;
-		} else if (value.contains("adpcm") || value.equals("alaw") || value.equals("ima4")) {
+		} else if (value.contains("adpcm") || value.equals("alaw") || value.equals("ima4") || value.equals("shockwave")) {
 			format = FormatConfiguration.ADPCM;
 		} else if (value.equals("pcm") || value.equals("swf") || (value.equals("1") && (audio.getCodecA() == null || !audio.getCodecA().equals(FormatConfiguration.DTS)))) {
 			format = FormatConfiguration.LPCM;
