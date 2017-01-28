@@ -265,7 +265,7 @@ public class DLNAMediaAudio extends DLNAMediaLang implements Cloneable {
 	 * @return True if the audio codec is FlashAudio.
 	 */
 	public boolean isFlashAudio() {
-		return FormatConfiguration.F4A.equalsIgnoreCase(getCodecA());
+		return FormatConfiguration.FlashAudio.equalsIgnoreCase(getCodecA());
 	}
 
 	/**
