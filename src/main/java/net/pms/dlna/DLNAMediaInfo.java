@@ -1371,6 +1371,9 @@ public class DLNAMediaInfo implements Cloneable {
 				case FormatConfiguration.ADTS:
 					mimeType = HTTPResource.AUDIO_ADTS_TYPEMIME;
 					break;
+				case FormatConfiguration.F4A:
+					mimeType = HTTPResource.AUDIO_F4A_TYPEMIME;
+					break;	
 				case FormatConfiguration.M4A:
 					mimeType = HTTPResource.AUDIO_M4A_TYPEMIME;
 					break;
@@ -1449,6 +1452,8 @@ public class DLNAMediaInfo implements Cloneable {
 					mimeType = HTTPResource.THREEGPP2_TYPEMIME;
 				} else if ("webm".equals(container)) {
 					mimeType = HTTPResource.WEBM_TYPEMIME;
+				} else if (container.startsWith("flash")) {
+					mimeType = HTTPResource.FLV_TYPEMIME;	
 				} else if (codecV.equals("mjpeg") || "jpg".equals(container)) {
 					mimeType = HTTPResource.JPEG_TYPEMIME;
 				} else if ("png".equals(codecV) || "png".equals(container)) {
@@ -1459,7 +1464,7 @@ public class DLNAMediaInfo implements Cloneable {
 					mimeType = HTTPResource.TIFF_TYPEMIME;
 				} else if ("bmp".equals(codecV) || "bmp".equals(container)) {
 					mimeType = HTTPResource.BMP_TYPEMIME;
-				} else if (codecV.startsWith("h264") || codecV.equals("h263") || codecV.equals("mpeg4") || codecV.equals("mp4")) {
+				} else if (codecV.startsWith("h264") || "h263".equals(codecV) || "mpeg4".equals(codecV) || "mp4".equals(codecV)) {
 					mimeType = HTTPResource.MP4_TYPEMIME;
 				} else if (codecV.contains("mpeg") || codecV.contains("mpg")) {
 					mimeType = HTTPResource.MPEG_TYPEMIME;
@@ -1477,6 +1482,8 @@ public class DLNAMediaInfo implements Cloneable {
 					mimeType = HTTPResource.AUDIO_MKA_TYPEMIME;
 				} else if ("webm".equals(container)) {
 					mimeType = HTTPResource.AUDIO_WEBM_TYPEMIME;
+				} else if (container.startsWith("flash")) {
+					mimeType = HTTPResource.AUDIO_F4A_TYPEMIME;
 				} else if (codecA.contains("mp3")) {
 					mimeType = HTTPResource.AUDIO_MP3_TYPEMIME;
 				} else if (codecA.equals(FormatConfiguration.MPA)) {
