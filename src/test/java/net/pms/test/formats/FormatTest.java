@@ -125,7 +125,7 @@ public class FormatTest {
 		assertEquals("RAW matches \"test.3fr\"", true, new RAW().match("test.3fr"));
 		assertEquals("RAW matches \"test.ari\"", true, new RAW().match("test.ari"));
 		assertEquals("RAW matches \"test.arw\"", true, new RAW().match("test.arw"));
-		assertEquals("RAW matches \"test.bay\"", true, new RAW().match("test.cay"));
+		assertEquals("RAW matches \"test.bay\"", true, new RAW().match("test.bay"));
 		assertEquals("RAW matches \"test.cap\"", true, new RAW().match("test.cap"));
 		assertEquals("RAW matches \"test.cr2\"", true, new RAW().match("test.cr2"));
 		assertEquals("RAW matches \"test.crw\"", true, new RAW().match("test.crw"));
