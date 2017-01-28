@@ -64,6 +64,7 @@ public class FormatConfiguration {
 	public static final String EAC3 = "eac3";
 	public static final String EVRC = "evrc";
 	public static final String FLAC = "flac";
+	public static final String FlashAudio = "f4a";
 	public static final String FLV = "flv";
 	public static final String GIF = "gif";
 	public static final String H263 = "h263";
